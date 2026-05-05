@@ -9,6 +9,7 @@ pip install -r requirements.txt
 
 ### 2. Run modules in order
 ```bash
+cd src
 python preprocessing.py
 python eda.py
 python model_building.py

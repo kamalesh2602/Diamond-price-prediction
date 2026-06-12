@@ -56,16 +56,24 @@ if page == "Home":
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.metric("Algorithm", "Ridge")
+        st.metric("Algorithm", "Ridge Regression")
 
     with col2:
-        st.metric("Features", "10")
+        st.metric("R² Score", "0.886")
 
     with col3:
-        st.metric("Deployment", "Streamlit")
-
+        st.metric("RMSE", "1342")
     st.info("Navigate to the Prediction page to estimate a diamond's price.")
-    
+    st.subheader("Dataset Information")
+
+    st.write("""
+    - Dataset Size: 53,940 Diamonds
+    - Features Used: 10
+    - Target Variable: Price
+    - Model: Ridge Regression
+    """)
+
+
 # ---------------- Prediction ----------------
 elif page == "Prediction":
     st.header("Predict Price")
@@ -154,7 +162,7 @@ elif page == "Results":
             data.append([model_name] + metrics)
             
         df = pd.DataFrame(data, columns=columns)
-        st.table(df)
+        st.dataframe(df, use_container_width=True)
     else:
         st.text("No results available.")
 

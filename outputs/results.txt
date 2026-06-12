@@ -1,0 +1,4 @@
+            Model          MSE        RMSE       R2
+Linear Regression 1.801071e+06 1342.039764 0.886032
+ Ridge Regression 1.801021e+06 1342.021163 0.886035
+ Lasso Regression 1.801047e+06 1342.030808 0.886033

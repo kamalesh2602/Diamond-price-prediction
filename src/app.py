@@ -1,10 +1,12 @@
-
 import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
+from pathlib import Path
 
-model = joblib.load("../models/ridge_model.pkl")
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+model = joblib.load(BASE_DIR / "models" / "ridge_model.pkl")
 
 st.title("💎 Diamond Price Prediction System")
 
@@ -142,14 +144,14 @@ elif page == "Prediction":
 # ---------------- EDA ----------------
 elif page == "EDA":
     st.header("EDA Visualizations")
-    st.image("../outputs/carat_price.png")
-    st.image("../outputs/heatmap.png")
+    st.image(BASE_DIR / "outputs" / "carat_price.png")
+    st.image(BASE_DIR / "outputs" / "heatmap.png")
 
 # ---------------- Results ----------------
 elif page == "Results":
     st.header("Model Comparison")
     
-    with open("../outputs/results.txt") as f:
+    with open(BASE_DIR / "outputs" / "results.txt") as f:
         lines = f.readlines()
         
     if len(lines) > 1:
